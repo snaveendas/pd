@@ -13,6 +13,7 @@ import java.util.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import com.google.common.base.Preconditions;
 import com.pd.annotation.ImageType;
 
 /**
@@ -64,6 +65,7 @@ public class ImageUtility {
 			String delimiter="[/]";
 			String[] tokens = mimeType.split(delimiter);
 			fileExtension = tokens[1];
+			Preconditions.checkArgument(fileExtension.equals("jpeg"), "Only jpeg file is supported");
 			logger.info("fileExtension - "+fileExtension);
 		} catch (IOException ioException){
 

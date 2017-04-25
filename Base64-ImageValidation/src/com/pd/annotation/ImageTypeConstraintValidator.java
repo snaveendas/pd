@@ -6,6 +6,7 @@ package com.pd.annotation;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import com.google.common.base.Preconditions;
 import com.pd.base64.image.validation.ImageUtility;
 
 /**
@@ -26,7 +27,7 @@ public class ImageTypeConstraintValidator implements ConstraintValidator<ImageTy
 		String fileExtension = null;
 		ImageUtility imageUtility = new ImageUtility();
 		fileExtension = imageUtility.DecodeAndValidateImageType(base64ImageString);
-		
+		Preconditions.checkArgument(fileExtension.equals("jpg"), "Only jpeg file is supported");
 		if(!fileExtension.equals(""))
 			return true;
 		else
