@@ -27,5 +27,6 @@ public class ImageUtilityTest {
 		
 		assert(extentionType.equals("jpeg"));
 	}
-
+	
+	
 }

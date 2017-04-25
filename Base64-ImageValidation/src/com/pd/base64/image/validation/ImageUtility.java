@@ -13,6 +13,8 @@ import java.util.Base64;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 
+import com.pd.annotation.ImageType;
+
 /**
  * @author psivadas
  *
@@ -21,6 +23,11 @@ public class ImageUtility {
 
 	Logger logger = Logger.getLogger(ImageUtility.class);
 
+	/**
+	 * Method to read a file and encode as Base64 encoded String
+	 * @param filePath
+	 * @return encoded String
+	 */
 	public String encodeToBase64String(String filePath)
 	{
 		String base64ImageString = null;
@@ -35,6 +42,11 @@ public class ImageUtility {
 	}
 
 
+	/**
+	 * Method to decode the Base64 encoded string and validate the Image Mime Type
+	 * @param base64ImageString
+	 * @return
+	 */
 	public String DecodeAndValidateImageType(String base64ImageString)
 	{
 		//decode the Base64 Image String
